@@ -1,6 +1,8 @@
+import 'package:examen_final_debionne/models/User.dart';
 import 'package:examen_final_debionne/provider/userProvider.dart';
 import 'package:examen_final_debionne/screens/homeScreen.dart';
 import 'package:examen_final_debionne/screens/loginScreen.dart';
+import 'package:examen_final_debionne/screens/userDetailScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +25,7 @@ class MainApp extends StatelessWidget{
         routes: {
           '/home': (context) => HomeScreen(),
           '/login': (context) => LoginScreen(),
+          '/userDetail': (context) => UserDetailScreen(user: ModalRoute.of(context)!.settings.arguments as User),
         },
       ),
     );
