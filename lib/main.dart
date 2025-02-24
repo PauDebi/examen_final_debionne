@@ -1,8 +1,11 @@
+import 'package:examen_final_debionne/provider/userProvider.dart';
 import 'package:examen_final_debionne/screens/homeScreen.dart';
 import 'package:examen_final_debionne/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async{
+  
   runApp(MainApp());
 }
 
@@ -12,13 +15,16 @@ class MainApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
-      routes: {
-        '/home': (context) => HomeScreen(),
-        '/login': (context) => LoginScreen(),
-      },
+    return ChangeNotifierProvider<UserProvider>(
+      create: (context) => UserProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: HomeScreen(),
+        routes: {
+          '/home': (context) => HomeScreen(),
+          '/login': (context) => LoginScreen(),
+        },
+      ),
     );
   }
 }
